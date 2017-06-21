@@ -1,0 +1,12 @@
+
+- hosts: tag_ansible_group_webservers
+
+  tasks:
+  - name: Enable firewall TCP access for httpd port
+    firewalld: port={{httpd_port}}/tcp immediate=true permanent=true state=enabled
+
+- hosts: tag_ansible_group_lbservers
+  tasks:
+  - name: Enable firewall TCP access for ha_proxy port
+    firewalld: port={{listenport}}/tcp immediate=true permanent=true state=enabled
+

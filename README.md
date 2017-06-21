@@ -67,6 +67,16 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
     ntpserver: 192.168.1.2
     repository: 'https://github.com/nicholas-chia/mywebapp.git'
 
+### firewall.yaml
+Enables Firewall access to required services
+
+#### Example
+```
+    ansible-playbook -i ../unicorn.hosts \
+    httpd_port=80" \
+    httpd_port=8888" \
+    firewall.yml 
+```
 ### enablessl.yaml
 Enables SSL on Apache
 
