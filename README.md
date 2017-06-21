@@ -68,8 +68,19 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
     repository: 'https://github.com/nicholas-chia/mywebapp.git'
 
 ### enablessl.yaml
-Enables SSL on Apacke
+Enables SSL on Apache
 
+#### Example
+```
+    ansible-playbook -i ../unicorn.hosts \
+    enablessl.yml 
+```
 
 ### rolling_update.yml
+
+#### Example
+```
+    ansible-playbook -i ../unicorn.hosts \
+    rolling_update.yml 
+```
 
