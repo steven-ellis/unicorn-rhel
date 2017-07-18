@@ -1,0 +1,30 @@
+# Make sure our webservers have SSI enabled for html files
+---
+- hosts: tag_ansible_group_webservers
+  vars:
+    - apache_dir: /etc/httpd
+    - docroot: /var/www/html
+  remote_user: root
+  tasks:
+
+  - name: Update Apache SSI Config
+    lineinfile:
+      path: "{{apache_dir}}/conf/httpd.conf"
+      state: present
+      regexp: "^{{item.base}}"
+      line: "{{item.base}} {{item.addn}}"
+    with_items:
+      - base: "    AddType text/html .shtm"
+        addn: ".html"
+      - base: "    AddOutputFilter INCLUDES .shtml"
+        addn: ".html"
+      - base: "    Options Indexes FollowSymLinks"
+        addn: "Includes"
+    notify: update httpd
+
+  handlers:
+  - name: update httpd
+    systemd:
+      name=httpd
+      state=reloaded
+      masked=no
