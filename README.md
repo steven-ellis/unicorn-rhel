@@ -31,12 +31,43 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
    [tag_ansible_group]
    centos7
    rhel7_lamp
+   rhel7_base
 
    [tag_ansible_group_webservers]
    rhel7_lamp
+   rhel7_base
 
    [tag_ansible_group_lbservers]
    centos7
+```
+
+#### Example With Variables Embedded
+```
+   [tag_ansible_group]
+   centos7
+   rhel7_lamp
+   rhel7_base
+
+   [tag_ansible_group:vars]
+   ntpserver=192.168.1.2
+
+   [tag_ansible_group_webservers]
+   rhel7_lamp
+   rhel7_base
+
+   [tag_ansible_group_webservers:vars]
+   repositorys='https://github.com/nicholas-chia/mywebapp.git'
+   httpd_port=80
+
+   [tag_ansible_group_lbservers]
+   centos7
+
+   [tag_ansible_group_lbservers:vars]
+   listenport=8888
+   mode=http
+   balances=roundrobin
+   daemonname=myapplb
+
 ```
 
 ### site.yaml
