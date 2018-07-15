@@ -56,7 +56,7 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
    rhel7_base
 
    [tag_ansible_group_webservers:vars]
-   repositorys='https://github.com/nicholas-chia/mywebapp.git'
+   repository='https://github.com/nicholas-chia/mywebapp.git'
    httpd_port=80
 
    [tag_ansible_group_lbservers]
@@ -65,7 +65,7 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
    [tag_ansible_group_lbservers:vars]
    listenport=8888
    mode=http
-   balances=roundrobin
+   balance=roundrobin
    daemonname=myapplb
 
 ```
