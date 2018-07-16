@@ -43,6 +43,9 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
 
 #### Example With Variables Embedded
 ```
+   [all:vars]
+   httpd_port=80
+
    [tag_ansible_group]
    centos7
    rhel7_lamp
@@ -57,7 +60,6 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
 
    [tag_ansible_group_webservers:vars]
    repository='https://github.com/nicholas-chia/mywebapp.git'
-   httpd_port=80
 
    [tag_ansible_group_lbservers]
    centos7
